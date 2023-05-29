@@ -15,16 +15,15 @@ public class Passagem implements Comparable<Passagem>{
         if(verificarCapacidade(vooIda, vooVolta)){
             this.vooIda = vooIda;
             this.vooVolta = vooVolta;
+            if(verificarAssento(assento)){
+                this.assento = assento;
+                this.vooIda.getAssentos().add(assento);
+                this.vooVolta.getAssentos().add(assento);
+            }else{
+                System.out.println("Assento indiponível!");
+            }
         }else{
             System.out.println("Voo sem disponibilidade!");
-        }
-
-        if(verificarAssento(assento)){
-            this.assento = assento;
-            this.vooIda.getAssentos().add(assento);
-            this.vooVolta.getAssentos().add(assento);
-        }else{
-            System.out.println("Assento indiponível!");
         }
 
     }
@@ -35,20 +34,20 @@ public class Passagem implements Comparable<Passagem>{
 
         if(verificarCapacidade(vooIda, null)){
             this.vooIda = vooIda;
+            vooIda.setNumAssentosOcupados(vooIda.getNumAssentosOcupados() + 1);
+            if(verificarAssento(assento)){
+                this.assento = assento;
+                this.vooIda.adicionarAssento(assento);
+            }else{
+                System.out.println("Assento indiponível!");
+            }
         }else{
             System.out.println("Voo sem disponibilidade!");
-        }
-
-        if(verificarAssento(assento)){
-            this.assento = assento;
-            this.vooIda.getAssentos().add(assento);
-        }else{
-            System.out.println("Assento indiponível!");
         }
     }
 
     public boolean verificarAssento(String assento){
-        if(vooIda.getAssentos().contains(assento) && vooVolta != null && vooVolta.getAssentos().contains(assento)){
+        if(this.vooIda.getAssentos().contains(assento) || (this.vooVolta != null && this.vooVolta.getAssentos().contains(assento))){
             return false;
         }
         return true;
@@ -56,9 +55,9 @@ public class Passagem implements Comparable<Passagem>{
 
     public boolean verificarCapacidade(Voo vooIda, Voo vooVolta){
         if(vooIda.getNumAssentosOcupados()+1 < vooIda.getNumAssentos()){
-            if(vooVolta != null && vooVolta.getNumAssentosOcupados() + 1 < vooVolta.getNumAssentos()){
+            if(vooVolta == null){
                 return true;
-            }
+            }else return vooVolta.getNumAssentosOcupados() + 1 < vooVolta.getNumAssentos();
         }
         return false;
     }

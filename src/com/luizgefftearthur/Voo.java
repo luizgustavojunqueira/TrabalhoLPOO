@@ -30,6 +30,10 @@ public class Voo {
         return numVoo + " " + origem.toString() + " " + destino.toString() + " " + dataHoraOrigem.toString() + " " + dataHoraDestino.toString();
     }
 
+    public void adicionarAssento(String assento){
+        this.assentos.add(assento);
+    }
+
     public List<String> getAssentos() {
         return assentos;
     }

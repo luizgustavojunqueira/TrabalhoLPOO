@@ -2,9 +2,27 @@ package com.luizgefftearthur;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+
+        int op = -1;
+
+        do {
+            System.out.println("Escolha uma opção: ");
+            System.out.println("");
+            //Decidir se vai sempre pedir pra criar todos os atributos
+            // ou se vai armazenar cada Objeto num vetor de seu tipo
+            // para pedir ao usuário para usar na criação de novos bilhetes
+
+            op = ler.nextInt();
+        }while(op != 0);
+
+
+
 
         Endereco end1 = new Endereco("Avenida alguma coisa", 725, "Pioneiros", "Campo Grande", "79070295");
         Endereco end2 = new Endereco("Avenida coisa alguma", 527, "Centro", "Campo Grande", "234563456");
@@ -28,7 +46,8 @@ public class Main {
 
         b.imprimirBilhete();
 
-
+        Passageiro p1 = new Passageiro("Joao", "06004655198", "2345435", end2, "321", "89/10/2020", 333);
+        Passagem pa1 = new Passagem("790", voo, p, "10");
 
     }
 }
