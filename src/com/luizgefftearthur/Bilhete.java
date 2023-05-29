@@ -1,4 +1,4 @@
-package com.luizegeffte;
+package com.luizgefftearthur;
 
 import java.util.Collections;
 import java.util.List;

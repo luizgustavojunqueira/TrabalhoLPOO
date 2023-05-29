@@ -1,4 +1,4 @@
-package com.luizegeffte;
+package com.luizgefftearthur;
 import java.util.Scanner;
 
 public abstract class Pessoa implements Verificavel{

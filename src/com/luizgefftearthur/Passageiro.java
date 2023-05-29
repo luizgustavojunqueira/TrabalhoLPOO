@@ -1,4 +1,4 @@
-package com.luizegeffte;
+package com.luizgefftearthur;
 
 public class Passageiro extends Pessoa{
 
